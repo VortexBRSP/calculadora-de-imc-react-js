@@ -4,9 +4,13 @@ import "./App.css";
 function App() {
   const [peso, setPeso] = useState("");
   const [altura, setAltura] = useState("");
+  const [resultado, setResultado] = useState("");
+
   function handleClick() {
+    var alt = altura / 100;
+    console.log(alt);
     if (!peso == "" || !altura == "") {
-      alert("Altura: " + altura + " Peso: " + peso);
+      setResultado("IMC: " + (peso / (alt * alt)).toFixed(2));
     } else {
       alert("Preencha os campos corretamente!");
     }
@@ -33,6 +37,7 @@ function App() {
           <button className="calcularbtn" onClick={handleClick}>
             Calcular
           </button>
+          <span className="resultado-span">{resultado}</span>
         </div>
       </div>
     </div>
